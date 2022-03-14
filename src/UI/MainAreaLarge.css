@@ -1,0 +1,12 @@
+.area-large {
+  margin: 0 15px 15px 0;
+  border-radius: 0 0 15px 0;
+  padding: 15px;
+  /* background-color: indianred; */
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}

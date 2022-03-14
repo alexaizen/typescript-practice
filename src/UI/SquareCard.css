@@ -1,0 +1,12 @@
+.square-card {
+  background-color: #1e1e1e;
+  border-radius: 15px;
+  padding: 5%;
+  margin: 7px;
+}
+
+.square-card h4 {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
