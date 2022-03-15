@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import LeftSidebar from './LeftSidebar';
+import LeftSidebar from "./LeftSidebar";
 
-import './App.css';
+import "./app.css";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   return (
-    <div>
+    <div className="layout">
       <LeftSidebar title={"Title Test"}></LeftSidebar>
-     
+      <Dashboard />
     </div>
   );
 }

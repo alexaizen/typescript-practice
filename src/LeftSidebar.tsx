@@ -1,15 +1,14 @@
-import React from "react"
+import React from "react";
 
-import "./LeftSidebar.css"
+import "./LeftSidebar.css";
 
-function LeftSidebar (props: any) {
-    return (
-        <React.Fragment>
-            
-            <h4>{props.title}</h4>
-            <p>Test test test sdasdasda</p>
-        </React.Fragment>
-    )
-}
+const LeftSidebar: React.FC<{ title: string }> = (props) => {
+  return (
+    <div className="left-sidebar">
+      <h4>{props.title}</h4>
+      <p>Test test test sdasdasda</p>
+    </div>
+  );
+};
 
-export default LeftSidebar
+export default LeftSidebar;
