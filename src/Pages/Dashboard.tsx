@@ -4,9 +4,10 @@ import "./Dashboard.css";
 
 const Dashboard = () => {
   return (
-    <React.Fragment>
-      <TitleBar title={"Title"}></TitleBar>
-    </React.Fragment>
+    <div>
+      <TitleBar title={"Dashboard t"}></TitleBar>
+      <p>dash</p>
+    </div>
   );
 };
 

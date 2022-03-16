@@ -6,22 +6,27 @@ import LeftSidebar from "./LeftSidebar";
 
 import "./app.css";
 import Dashboard from "./Pages/Dashboard";
+import Tasks from "./Pages/Tasks";
+import Profile from "./Pages/Profile";
 
 function App() {
   return (
     <div className="layout">
       <LeftSidebar title={"Title Test"}></LeftSidebar>
-      <Switch>
-        <Route path="/Dashboard" exact>
+      {/* <Switch>
+        <Route path="/dashboard" exact> */}
                <Dashboard />
-        </Route>
-        <Route path="/Profile" exact>
-               <Dashboard />
-        </Route>
-      
+        {/* </Route>
 
-      </Switch>
-      
+        <Route path="/tasks" exact>
+               <Tasks />
+        </Route>
+
+        <Route path="/profile" exact>
+               <Profile />
+        </Route>
+      </Switch> */}
+     
     </div>
   );
 }

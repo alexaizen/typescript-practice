@@ -3,9 +3,10 @@ import "./Navigation.css"
 const Navigation = () => {
     return (
         <ul>
-            <li><a href="/Dashboard" >Dashboard</a></li>
-            <li><a href="/Profile" >Tasks</a></li>
-            <li>Profile</li>
+            <li><a href="/dashboard" >Dashboard</a></li>
+            <li><a href="/tasks" >Tasks</a></li>
+            <li><a href="/dashboard" >Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
             <li>Settings</li>
         </ul>
     )

@@ -4,9 +4,10 @@ import "./Tasks.css"
 
 const Tasks = () => {
     return (
-        <React.Fragment>
+        <div>
             <TitleBar title={"Tasks"} />
-        </React.Fragment>
+            <p>tasks</p>
+        </div>
     )
 }
 
