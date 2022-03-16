@@ -5,7 +5,7 @@ import "./Dashboard.css";
 const Dashboard = () => {
   return (
     <div>
-      <TitleBar title={"Dashboard t"}></TitleBar>
+      <TitleBar title={"Dashboard"}></TitleBar>
       <p>dash</p>
     </div>
   );

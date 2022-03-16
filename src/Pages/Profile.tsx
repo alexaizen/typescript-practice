@@ -6,9 +6,9 @@ const Profile = () => {
 
     return (
 
-        <React.Fragment>
+        <div>
         <TitleBar title={"Profile"}></TitleBar>
-    </React.Fragment>
+    </div>
     )
     
 

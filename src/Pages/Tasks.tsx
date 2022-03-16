@@ -6,7 +6,6 @@ const Tasks = () => {
     return (
         <div>
             <TitleBar title={"Tasks"} />
-            <p>tasks</p>
         </div>
     )
 }

@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
+
 import "./Navigation.css"
 
 const Navigation = () => {
     return (
         <ul>
-            <li><a href="/dashboard" >Dashboard</a></li>
-            <li><a href="/tasks" >Tasks</a></li>
-            <li><a href="/dashboard" >Dashboard</a></li>
-            <li><a href="/profile">Profile</a></li>
+            <li><Link to="/dashboard" >Dashboard</Link></li>
+            <li><Link to="/tasks" >Tasks</Link></li>
+            <li><Link to="/profile">Profile</Link></li>
             <li>Settings</li>
         </ul>
     )

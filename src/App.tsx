@@ -13,10 +13,10 @@ function App() {
   return (
     <div className="layout">
       <LeftSidebar title={"Title Test"}></LeftSidebar>
-      {/* <Switch>
-        <Route path="/dashboard" exact> */}
+      <Switch>
+        <Route path="/dashboard" exact>
                <Dashboard />
-        {/* </Route>
+        </Route>
 
         <Route path="/tasks" exact>
                <Tasks />
@@ -25,7 +25,10 @@ function App() {
         <Route path="/profile" exact>
                <Profile />
         </Route>
-      </Switch> */}
+        <Route path="*">
+          <p>Welcome</p>
+        </Route>
+      </Switch>
      
     </div>
   );
