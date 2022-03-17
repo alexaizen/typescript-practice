@@ -1,6 +1,7 @@
 .single-task-card {
   padding: 15px;
   background-color: blueviolet;
+  border-radius: 10px;
   color: antiquewhite;
   height: 150px;
 }

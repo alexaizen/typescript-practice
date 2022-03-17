@@ -1,5 +1,5 @@
 .new-task {
-  height: 150px;
+  height: 180px;
   background-color: darkslategrey;
   width: 100%;
   grid-column: 1/4;
@@ -9,6 +9,8 @@
 }
 
 .add-task {
+  height: 180px;
+  /* align-self: flex-start; */
   background-color: #154c79;
   border: 7px dashed rgb(14, 13, 13);
   border-radius: 10px;
