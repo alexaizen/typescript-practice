@@ -1,0 +1,10 @@
+.dash-wrapper {
+  grid-column: 1/4;
+  align-self: flex-start;
+  width: 100%;
+  background-color: cadetblue;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+}

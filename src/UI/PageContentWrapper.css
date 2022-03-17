@@ -1,0 +1,7 @@
+.page-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 10px;
+  grid-template-rows: 100px;
+  overflow: hidden;
+}
