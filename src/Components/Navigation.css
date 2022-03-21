@@ -1,0 +1,34 @@
+.nav-menu {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+}
+
+.nav-menu li {
+  padding: 30px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-menu li img {
+  margin-right: 20px;
+}
+
+.nav-menu a:link,
+.nav-menu a:visited {
+  color: aliceblue;
+  text-decoration: none;
+  /* padding: 15px 25px; */
+}
+
+.nav-menu a:hover {
+  background-color: #3b3b3b;
+}
+
+.nav-active {
+  background-color: #3b3b3b;
+}
