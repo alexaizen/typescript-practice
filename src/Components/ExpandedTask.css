@@ -1,0 +1,4 @@
+.expanded-task {
+  overflow: scroll;
+  overflow-x: hidden;
+}

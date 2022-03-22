@@ -17,14 +17,14 @@ function App() {
   const isLogedIn = useSelector(selectLoggedIn);
   const [isLoaded, setIsloaded] = useState<boolean>(false);
 
-  type TaskModel ={
+  type TaskModel = {
     desc: string;
     id: number;
     status: string;
     title: string;
-}
+  };
 
-type UserModel = {
+  type UserModel = {
     avatar: string;
     bio: string;
     email: string;
@@ -35,39 +35,40 @@ type UserModel = {
     name: string;
     occupation: string;
     password: string;
-    tasks: TaskModel[]
-}
+    tasks: TaskModel[];
+  };
 
   // Identifies currently logged user by email
   const [currentUser, setCurrentUser] = useState<UserModel>({
     avatar: "string",
-      bio: "string",
-      email: "no email",
-      fb: "string",
-      id: "string",
-      insta: "string",
-      li: "string",
-      name: "string",
-      occupation: "string",
-      password: "string",
-      tasks: []
+    bio: "string",
+    email: "no email",
+    fb: "string",
+    id: "string",
+    insta: "string",
+    li: "string",
+    name: "string",
+    occupation: "string",
+    password: "string",
+    tasks: [],
   });
   // Set currently logged user by email
   const currentUserDataHandler = function (dbData: UserModel) {
-    setCurrentUser((prevState) => {
-      return { ...prevState, ...dbData};
-    });
+    setCurrentUser(dbData);
     console.log(currentUser.email);
     setIsloaded(true);
   };
 
-  const currentUserDataUpdater = function (user: UserModel) {
-    setCurrentUser(user);
-  };
+  // const currentUserDataUpdater = function (user: UserModel) {
+  //   setCurrentUser(user);
+  // };
 
   return (
     <div className="layout">
-      <LeftSidebar title={"Title Test"} userData={currentUserDataHandler}></LeftSidebar>
+      <LeftSidebar
+        title={"Title Test"}
+        userData={currentUserDataHandler}
+      ></LeftSidebar>
       <Switch>
         {isLogedIn && (
           <Route path="/dashboard" exact>
@@ -77,7 +78,10 @@ type UserModel = {
 
         {isLogedIn && (
           <Route path="/tasks" exact>
-            <Tasks />
+            <Tasks
+              user={currentUser}
+              currUserUpdater={currentUserDataHandler}
+            />
           </Route>
         )}
 

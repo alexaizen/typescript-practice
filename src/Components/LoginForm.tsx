@@ -1,36 +1,34 @@
-import React from "react"
+import React from "react";
 
 import { useState, useRef } from "react";
 
-import "./LoginForm.css"
+import "./LoginForm.css";
 
-
-type TaskModel ={
-    desc: string;
-    id: number;
-    status: string;
-    title: string;
-}
+type TaskModel = {
+  desc: string;
+  id: number;
+  status: string;
+  title: string;
+};
 
 type UserModel = {
-    avatar: string;
-    bio: string;
-    email: string;
-    fb: string;
-    id: string;
-    insta: string;
-    li: string;
-    name: string;
-    occupation: string;
-    password: string;
-    tasks: TaskModel[]
-}
+  avatar: string;
+  bio: string;
+  email: string;
+  fb: string;
+  id: string;
+  insta: string;
+  li: string;
+  name: string;
+  occupation: string;
+  password: string;
+  tasks: TaskModel[];
+};
 
-const LoginForm: React.FC<{onLogin: ()=>void, userData: (dbData: UserModel) => void}> = (props) => {
-
-
- 
-   
+const LoginForm: React.FC<{
+  onLogin: () => void;
+  userData: (dbData: UserModel) => void;
+}> = (props) => {
   const userEmailLogin = useRef<HTMLInputElement>(null);
   const userPassLogin = useRef<HTMLInputElement>(null);
 
@@ -39,20 +37,20 @@ const LoginForm: React.FC<{onLogin: ()=>void, userData: (dbData: UserModel) => v
   const userPassReg = useRef<HTMLInputElement>(null);
 
   const [registering, setRegistering] = useState(false);
-  const [error, setError] = useState<string | null >(null);
+  const [error, setError] = useState<string | null>(null);
 
   // Error message handler and display
   const errorHandler = function (error: string) {
     if (error === "INVALID_EMAIL") {
       setError("Incorect E-mail, please enter valid E-mail address");
     } else if (error === "MISSING_PASSWORD") {
-      setError("Password field cant be empty, please provide password")
+      setError("Password field cant be empty, please provide password");
     } else if (error === "INVALID_PASSWORD") {
-      setError ("Incorect password, please enter valid login credentials")
+      setError("Incorect password, please enter valid login credentials");
     } else {
-      setError(error)
+      setError(error);
     }
-    
+
     setTimeout(() => setError(null), 5000);
   };
 
@@ -62,7 +60,11 @@ const LoginForm: React.FC<{onLogin: ()=>void, userData: (dbData: UserModel) => v
   };
 
   // function push user's profile data to database (called on a new user creation)
-  const pushUser = function (userEmail: string, userName: string, enteredPassReg: string) {
+  const pushUser = function (
+    userEmail: string,
+    userName: string,
+    enteredPassReg: string
+  ) {
     fetch(
       "https://react-1bbaa-default-rtdb.europe-west1.firebasedatabase.app/users.json",
       {
@@ -78,7 +80,7 @@ const LoginForm: React.FC<{onLogin: ()=>void, userData: (dbData: UserModel) => v
           fb: "link not provided",
           insta: "profile not provided",
           li: "profile not provided",
-          id: `${Math.random} + userEmail`,
+          // id: userEmail, ovde treba ubaciti name iz database koji se dobije tek nakon sto ova push user funkcija uspjesno fetchuje, najlakse ovde preskociti pa u load user staviti odvojenu funkciju da unese ovaj id u korisnika
           tasks: [
             {
               id: Math.random(),
@@ -152,7 +154,7 @@ const LoginForm: React.FC<{onLogin: ()=>void, userData: (dbData: UserModel) => v
           .json()
           .then((resJSON) => {
             //   !!!!!!!!!!!!!!!!!!!!!!!!
-            loadUser(resJSON.email); 
+            loadUser(resJSON.email);
             props.onLogin();
           })
           .catch((err) => {
@@ -173,7 +175,6 @@ const LoginForm: React.FC<{onLogin: ()=>void, userData: (dbData: UserModel) => v
     });
   };
 
-  
   // signUp function that create new user account and calls pushUser() to create new user into database and populate it with profile data
   const signUp = function (event: React.FormEvent) {
     event.preventDefault();
@@ -269,7 +270,7 @@ const LoginForm: React.FC<{onLogin: ()=>void, userData: (dbData: UserModel) => v
             type="password"
             ref={userPassReg}
           ></input>
-        
+
           <button className="button-login-main" type="submit">
             Register
           </button>
@@ -284,6 +285,6 @@ const LoginForm: React.FC<{onLogin: ()=>void, userData: (dbData: UserModel) => v
       )}
     </React.Fragment>
   );
-}
+};
 
 export default LoginForm;
