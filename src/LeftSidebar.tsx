@@ -8,24 +8,56 @@ import Navigation from "./Components/Navigation";
 import { selectLoggedIn, loginToggle } from "./Store/store";
 
 import "./LeftSidebar.css";
+import LoginForm from "./Components/LoginForm";
 
-const LeftSidebar: React.FC<{ title: string }> = (props) => {
+
+type TaskModel ={
+  desc: string;
+  id: number;
+  status: string;
+  title: string;
+}
+
+type UserModel = {
+  avatar: string;
+  bio: string;
+  email: string;
+  fb: string;
+  id: string;
+  insta: string;
+  li: string;
+  name: string;
+  occupation: string;
+  password: string;
+  tasks: TaskModel[]
+}
+
+const LeftSidebar: React.FC<{title: string, userData: (dbData: UserModel)=> void;}> = (props) => {
+
+  
   const dispatch = useDispatch();
   const isLogedIn = useSelector(selectLoggedIn);
   const history = useHistory();
 
-  const loginStatusHandler = function () {
-    // e.preventDefault();
+  const loginStatusHandler = () => {
     dispatch(loginToggle());
-    console.log(isLogedIn);
-    history.push(isLogedIn ? "/welcome" : "/dashboard");
+    history.push(isLogedIn ? "/" : "/dashboard");
   };
 
   return (
     <div className="left-sidebar">
-      <h4>{props.title}</h4>
-      <p>Test test test sdasdasda</p>
-      <Navigation></Navigation>
+      <div className="profile-area">
+        <img
+          src="/Assets/network.png"
+          alt="avatar"
+          width="60px"
+          height="60px"
+        />
+        <h4>Connectify</h4>
+      </div>
+      {isLogedIn && <Navigation></Navigation>}
+
+      {!isLogedIn && <LoginForm onLogin={loginStatusHandler} userData={props.userData}/>}
       <button
         className="button-log-out"
         type="button"
