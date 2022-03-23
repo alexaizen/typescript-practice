@@ -52,12 +52,21 @@ function App() {
     password: "string",
     tasks: [],
   });
+
+
   // Set currently logged user by email
   const currentUserDataHandler = function (dbData: UserModel) {
     setCurrentUser(dbData);
     console.log(currentUser.email);
     setIsloaded(true);
   };
+
+  // currently logged user`s  database key
+    const [ dbKey, setDbKey ] = useState<string>("")
+
+    const dbKeyHandler = (key: string) => {
+      setDbKey(key)
+    }
 
   // const currentUserDataUpdater = function (user: UserModel) {
   //   setCurrentUser(user);
@@ -68,6 +77,7 @@ function App() {
       <LeftSidebar
         title={"Title Test"}
         userData={currentUserDataHandler}
+        dbKeyHandler={dbKeyHandler}
       ></LeftSidebar>
       <Switch>
         {isLogedIn && (
@@ -80,6 +90,7 @@ function App() {
           <Route path="/tasks" exact>
             <Tasks
               user={currentUser}
+              dbKey={dbKey}
               currUserUpdater={currentUserDataHandler}
             />
           </Route>

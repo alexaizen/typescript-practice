@@ -28,6 +28,7 @@ type UserModel = {
 const LoginForm: React.FC<{
   onLogin: () => void;
   userData: (dbData: UserModel) => void;
+  dbKeyHandler: (key: string)=>void;
 }> = (props) => {
   const userEmailLogin = useRef<HTMLInputElement>(null);
   const userPassLogin = useRef<HTMLInputElement>(null);
@@ -80,7 +81,7 @@ const LoginForm: React.FC<{
           fb: "link not provided",
           insta: "profile not provided",
           li: "profile not provided",
-          // id: userEmail, ovde treba ubaciti name iz database koji se dobije tek nakon sto ova push user funkcija uspjesno fetchuje, najlakse ovde preskociti pa u load user staviti odvojenu funkciju da unese ovaj id u korisnika
+          id: userEmail,
           tasks: [
             {
               id: Math.random(),
@@ -118,6 +119,9 @@ const LoginForm: React.FC<{
           for (const key in data) {
             if (data[key].email === currUserEmail) {
               props.userData(data[key]);
+              console.log(data)
+              props.dbKeyHandler(key)
+              console.log(key)
               console.log("User loaded");
             }
           }

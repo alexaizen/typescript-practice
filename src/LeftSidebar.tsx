@@ -32,7 +32,7 @@ type UserModel = {
   tasks: TaskModel[]
 }
 
-const LeftSidebar: React.FC<{title: string, userData: (dbData: UserModel)=> void;}> = (props) => {
+const LeftSidebar: React.FC<{title: string, userData: (dbData: UserModel)=> void; dbKeyHandler: (key: string) => void;}> = (props) => {
 
   
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ const LeftSidebar: React.FC<{title: string, userData: (dbData: UserModel)=> void
       </div>
       {isLogedIn && <Navigation></Navigation>}
 
-      {!isLogedIn && <LoginForm onLogin={loginStatusHandler} userData={props.userData}/>}
+      {!isLogedIn && <LoginForm onLogin={loginStatusHandler} userData={props.userData} dbKeyHandler={props.dbKeyHandler}/>}
       <button
         className="button-log-out"
         type="button"

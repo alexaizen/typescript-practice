@@ -32,6 +32,7 @@ type UserModel = {
 
 const Tasks: React.FC<{
   user: UserModel;
+  dbKey: string;
   currUserUpdater: (user: UserModel) => void;
 }> = (props) => {
   const [tasks, setTasks] = useState<TaskModel[]>(props.user.tasks);
@@ -78,7 +79,7 @@ const Tasks: React.FC<{
 
     // Adding to database
     fetch(
-      `https://react-1bbaa-default-rtdb.europe-west1.firebasedatabase.app/users/${props.user.id}.json`,
+      `https://react-1bbaa-default-rtdb.europe-west1.firebasedatabase.app/users/${props.dbKey}.json`,
       {
         method: "PUT",
         body: JSON.stringify({
@@ -145,7 +146,7 @@ const Tasks: React.FC<{
 
     // Updating user data in database
     fetch(
-      `https://react-1bbaa-default-rtdb.europe-west1.firebasedatabase.app/users/${props.user.id}.json`,
+      `https://react-1bbaa-default-rtdb.europe-west1.firebasedatabase.app/users/${props.dbKey}.json`,
       {
         method: "PUT",
         body: JSON.stringify({
@@ -216,7 +217,7 @@ const Tasks: React.FC<{
 
     // Updating user data in database
     fetch(
-      `https://react-1bbaa-default-rtdb.europe-west1.firebasedatabase.app/users/${props.user.id}.json`,
+      `https://react-1bbaa-default-rtdb.europe-west1.firebasedatabase.app/users/${props.dbKey}.json`,
       {
         method: "PUT",
         body: JSON.stringify({
@@ -256,7 +257,9 @@ const Tasks: React.FC<{
       <ul className="content-wrapper">
         <NewTask
           onAddTask={updateTasksList}
+          dbKey={props.dbKey}
           user={props.user}
+          
           currUserUpdater={props.currUserUpdater}
         ></NewTask>
 

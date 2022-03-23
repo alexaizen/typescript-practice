@@ -25,6 +25,7 @@ type UserModel = {
 
 const NewTask: React.FC<{
   user: UserModel;
+  dbKey: string;
   onAddTask: (task: TaskModel) => void;
   currUserUpdater: (user: UserModel) => void;
 }> = (props) => {
@@ -69,7 +70,7 @@ const NewTask: React.FC<{
 
     // Adding to database
     fetch(
-      `https://react-1bbaa-default-rtdb.europe-west1.firebasedatabase.app/users/${props.user.id}.json`,
+      `https://react-1bbaa-default-rtdb.europe-west1.firebasedatabase.app/users/${props.dbKey}.json`,
       {
         method: "PUT",
         body: JSON.stringify({
