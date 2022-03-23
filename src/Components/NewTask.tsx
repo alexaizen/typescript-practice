@@ -123,14 +123,20 @@ const NewTask: React.FC<{
 
       {addTaskToggle && (
         <form onSubmit={formSubmitHandler} className="new-task">
-          <label>Title</label>
+          <div>
+            <label>Title</label>
           <input id="title" ref={titleInput} required></input>
+          </div>
+          <div>
           <label>Description</label>
           <input id="description" ref={descInput} required></input>
+          </div>
+          <div>
           <button type="submit">Create Task</button>
           <button type="button" onClick={addTaskToggleHandler}>
             Discard
           </button>
+          </div>
         </form>
       )}
     </React.Fragment>

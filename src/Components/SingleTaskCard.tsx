@@ -36,6 +36,9 @@ const SingleTaskCard: React.FC<{
   //   props.selectedTaskHandler(id);
   // };
 
+  const activityIcon =
+    props.status === "active" ? "/Assets/fire.png" : "/Assets/plant.png";
+
   return (
     <li
       className="single-task-card"
@@ -43,7 +46,12 @@ const SingleTaskCard: React.FC<{
         props.selectedTaskHandler(props.id);
       }}
     >
+        <div className="task-card-header" >
+            <img src={activityIcon} height="24px" width="24px"alt="activity status" />
+            <p>{props.status}</p>
+        </div>        
       <p>{props.title}</p>
+      
     </li>
   );
 };
